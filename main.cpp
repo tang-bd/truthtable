@@ -158,6 +158,7 @@ public:
             pos++;
         }
         string symbol = text.substr(begin, pos - begin);
+        reverse(symbol.begin(), symbol.end());
         return new Atom(symbol);
     }
 
