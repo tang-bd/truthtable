@@ -105,7 +105,7 @@ public:
     }
 
     bool eval(map<string, bool> &interpr) {
-        return !lchild->eval(interpr) || rchild->eval(interpr);
+        return lchild->eval(interpr) || !rchild->eval(interpr);
     }
 };
 
