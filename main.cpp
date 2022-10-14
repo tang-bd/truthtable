@@ -105,7 +105,7 @@ public:
     }
 
     bool eval(map<string, bool> &interpr) {
-        return lchild->eval(interpr) || !rchild->eval(interpr);
+        return !lchild->eval(interpr) || rchild->eval(interpr);
     }
 };
 
@@ -158,7 +158,6 @@ public:
             pos++;
         }
         string symbol = text.substr(begin, pos - begin);
-        reverse(symbol.begin(), symbol.end());
         return new Atom(symbol);
     }
 
@@ -274,7 +273,6 @@ int main() {
     string text;
 
     getline(cin, text);
-    reverse(text.begin(), text.end());
 
     Ast tree;
     Parser parser(text);
