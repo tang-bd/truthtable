@@ -195,6 +195,9 @@ public:
                 pos++;
                 if(tree.root) {
                     Ast lchild = tree, rchild = parse_expr();
+                    if(!rchild.root) {
+                        throw pos + 1;
+                    }
                     tree.atoms.insert(lchild.atoms.begin(), lchild.atoms.end());
                     tree.atoms.insert(rchild.atoms.begin(), rchild.atoms.end());
                     return Ast(new And(lchild.root, rchild.root), tree.atoms);
@@ -205,6 +208,9 @@ public:
                 pos++;
                 if(tree.root) {
                     Ast lchild = tree, rchild = parse_expr();
+                    if(!rchild.root) {
+                        throw pos + 1;
+                    }
                     tree.atoms.insert(lchild.atoms.begin(), lchild.atoms.end());
                     tree.atoms.insert(rchild.atoms.begin(), rchild.atoms.end());
                     return Ast(new Or(lchild.root, rchild.root), tree.atoms);
@@ -215,6 +221,9 @@ public:
                 pos++;
                 if(tree.root) {
                     Ast lchild = tree, rchild = parse_expr();
+                    if(!rchild.root) {
+                        throw pos + 1;
+                    }
                     tree.atoms.insert(lchild.atoms.begin(), lchild.atoms.end());
                     tree.atoms.insert(rchild.atoms.begin(), rchild.atoms.end());
                     return Ast(new Xor(lchild.root, rchild.root), tree.atoms);
@@ -225,6 +234,9 @@ public:
                 pos++;
                 if(tree.root) {
                     Ast lchild = tree, rchild = parse_expr();
+                    if(!rchild.root) {
+                        throw pos + 1;
+                    }
                     tree.atoms.insert(lchild.atoms.begin(), lchild.atoms.end());
                     tree.atoms.insert(rchild.atoms.begin(), rchild.atoms.end());
                     return Ast(new Imp(lchild.root, rchild.root), tree.atoms);
@@ -235,6 +247,9 @@ public:
                 pos++;
                 if(tree.root) {
                     Ast lchild = tree, rchild = parse_expr();
+                    if(!rchild.root) {
+                        throw pos + 1;
+                    }
                     tree.atoms.insert(lchild.atoms.begin(), lchild.atoms.end());
                     tree.atoms.insert(rchild.atoms.begin(), rchild.atoms.end());
                     return Ast(new BiImp(lchild.root, rchild.root), tree.atoms);
